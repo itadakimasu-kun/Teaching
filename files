@@ -30,6 +30,10 @@ public class Robot extends InterativeRobot {
 }
 
 public void autonomousPeriodic() {
+ gyro.reset();
+ while (isAutonomousPeriodic()) {
+  double angle = gyro.getAngle();
+  drive
 
 }
 
