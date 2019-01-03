@@ -1,0 +1,87 @@
+package org.usfirst.frc.team7109.robot;
+
+import.edu.wpi.first.wpilibj.Spark;
+import.edu.wpi.first.wpilibj.DriverStation;
+import.edu.wpi.first.wpilibj.Joystick;
+import.edu.wpi.first.wpilibj.gyro;
+import.edu.wpi.first.wpilibj.timer;
+
+public class Robot extends InterativeRobot {
+
+ private Spark spark1;
+ private Spark spark2;
+ private Spark spark3;
+ private Spark spark4;
+ private Spark spark5;
+ 
+ private ArcadeDrive. drive;
+ private Gyro gyro;
+ 
+ double Kp = o.03;
+ 
+ public GyroSample() (
+ 
+ 
+ 
+ DriverStation matchInfo = DriverStation.getInstance();
+ 
+ Joystick joy1 = new Joystick(0);
+ Joystick joy2 = new Joystick(1);
+}
+
+public void autonomousPeriodic() {
+
+}
+
+public void teleopInit() {
+
+}
+
+public void teleopPeriodic() {
+  double y = joy1.getRawAxis(1);
+  double x = joy1.getRawAxis(0);
+  double z = joy1.getRawAxis(2);
+  
+  spark1.set(y);
+  spark2.set(-y);
+  spark1.set(x);
+  spark2.set(-x);
+  spark1.set(z);
+  spark2.set(-z);
+  
+  if(joy1.getRawButton(1)) {
+  spark3.set(0.5);
+  }
+  
+  if(joy1.getRawButton(2)) {
+  spark3.set(-0.5);
+  }
+  
+  if(joy1.getRawButton(3)) {
+  spark4.set(0.5);
+  spark5.set(-0.5);
+  }
+  
+  if(joy1.getRawButton(4)) {
+  spark4.set(-0.5);
+  spark5.set(0.5);
+  }
+  
+  if(joy2.getRawButton(1)) {
+  solenoid1.set(DoubleSolenoid.Value.kForward);
+  else {
+  solenoid1.set(DoubleSolenoid.Value.kReverse);
+    }
+  }
+  if(joy2.getRawButton(2)) {
+  solenoid2.set(DoubleSolenoid.Value.kForward);
+  else {
+  solenoid2.set(DoubleSolenoid.Value.kReverse);
+   }
+  }
+  if(joy1.getRawButton(11)) {
+  climb.set(true);
+  else {
+  climb.set(false);
+   }
+  }
